@@ -10,9 +10,11 @@ class FormValidators {
     if (value == null || value.trim().isEmpty) {
       return 'El correo es obligatorio';
     }
-    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    final emailRegex = RegExp(
+      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+    );
     if (!emailRegex.hasMatch(value.trim())) {
-      return 'Ingresa un correo electrónico válido';
+      return 'Ingresa un correo electrónico válido (ej. usuario@dominio.com)';
     }
     return null;
   }
